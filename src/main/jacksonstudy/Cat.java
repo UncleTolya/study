@@ -1,8 +1,7 @@
-package jacksonstudy.main;
+package main.jacksonstudy;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonAutoDetect
 public class Cat {

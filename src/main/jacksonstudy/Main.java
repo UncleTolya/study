@@ -1,13 +1,10 @@
-package jacksonstudy.main;
+package main.jacksonstudy;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.type.TypeFactory;
 
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.StringWriter;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
 
 public class Main {
 
