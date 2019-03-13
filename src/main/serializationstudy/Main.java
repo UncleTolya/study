@@ -11,25 +11,28 @@ public class Main {
 
         Man husband = new Man("Igor");
         husband.setZarplata(new BigDecimal("500000"));
+        System.out.println();
 
-//        Woman wife = new Woman("Sveta", 4);
+        Woman wife = new Woman("Sveta", 4);
+        System.out.println();
 
-//        husband.setCouple(wife);
-//        wife.setCouple(husband);
+        husband.setCouple(wife);
+        wife.setCouple(husband);
 
         save(husband, fileHusband);
+        System.out.println();
+
         Man husband2 = (Man) load(fileHusband);
         System.out.println(husband.getName());
         System.out.println(husband2.getName());
         System.out.println(husband.equals(husband2));
-
         System.out.println();
 
-//        save(wife, fileWife);
+        save(wife, fileWife);
         Woman wife2 = (Woman) load(fileWife);
-//        System.out.println(wife.getName());
+        System.out.println(wife.getName());
         System.out.println(wife2.getName());
-//        System.out.println(wife.equals(wife2));
+        System.out.println(wife.equals(wife2));
 
     }
 

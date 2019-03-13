@@ -1,6 +1,5 @@
 package main.serializationstudy;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class Man extends Person {
