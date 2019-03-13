@@ -9,6 +9,7 @@ public class SchoolAiFabric extends PersonFabric {
 
     @Override
     public Person makePerson(int age) {
+        if (age < 0 || age > 200) throw new IllegalArgumentException();
         if (age <= 18) return new Student(age);
         if (age > 18 && age < 50) return new Teacher(age);
         return new Director(age);

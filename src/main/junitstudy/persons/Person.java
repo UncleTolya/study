@@ -17,4 +17,16 @@ public abstract class Person {
     public String toString() {
         return this.getClass().getSimpleName() + "{" + "name='" + name + '\'' + ", age=" + age + ", sex=" + sex + '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Sex getSex() {
+        return sex;
+    }
 }
