@@ -1,40 +1,29 @@
 package main.mysqlstudy;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import main.junitstudy.persons.Sex;
+import main.junitstudy.persons.workers.Worker;
+
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.util.Properties;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class DBTest {
-    public static void main(String[] args) {
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver").getDeclaredConstructor().newInstance();
-            try (Connection conn = getConnection()){
+    static Connection connection;
 
-                System.out.println("Connection to Store DB succesfull!");
-            }
+    public static void main(String[] args) throws Exception {
+        connection = DBConnection.getConnection();
+        Statement statement = connection.createStatement();
+        String query = "select * from person";
+        ResultSet set = statement.executeQuery(query);
+        System.out.println("Select statement from DB has been complete");
+        Worker worker = null;
+        while (set.next()) {
+            int id = set.getInt(1);
+            String name = set.getString(2);
+            int age = set.getInt(3);
+            worker = new Worker(name, age, Sex.MALE);;
         }
-        catch(Exception ex){
-            System.out.println("Connection failed...");
-
-            System.out.println(ex);
-        }
-    }
-
-    public static Connection getConnection() throws SQLException, IOException {
-
-        Properties props = new Properties();
-        try(InputStream in = Files.newInputStream(Paths.get("database.properties"))){
-            props.load(in);
-        }
-        String url = props.getProperty("url");
-        String username = props.getProperty("username");
-        String password = props.getProperty("password");
-
-        return DriverManager.getConnection(url, username, password);
+        worker.beingSevere();
+        System.out.printf("%s, say: i am %d years old!", worker.getName(), worker.getAge());
     }
 }
