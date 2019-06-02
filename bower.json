@@ -1,0 +1,20 @@
+{
+  "name": "study",
+  "authors": [
+    "uncletolya <stolikzakazan@gmail.com>"
+  ],
+  "description": "study",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "knockout": "^3.5.0"
+  }
+}

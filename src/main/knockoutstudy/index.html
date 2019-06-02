@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>KnockoutJS test</title>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js'></script>
+</head>
+<body>
+    <input type="text" data-bind="textInput: message, visible: isVisible">
+    <div>
+        <div data-bind="text: message"></div>
+        <button data-bind="click: visibleHandler">SHOW INPUT</button>
+    </div>
+
+
+    <script>
+        let viewModel = {
+            message: ko.observable('default value'),
+            isVisible: ko.observable(false),
+            visibleHandler: function () {
+                let nowVision = this.isVisible();
+                this.isVisible(!nowVision);
+                }
+        };
+
+        ko.applyBindings(viewModel);
+        // viewModel.message.subscribe((newVal) => {
+        //     console.log(newVal)
+        // });
+    </script>
+</body>
+</html>
